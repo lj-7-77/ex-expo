@@ -12,12 +12,13 @@ final class DecodeManager: Error {
         guard let asset = NSDataAsset(name: "exposition_universelle_1900") else {
             return
         }
-
-        do {
-            let decodeData = try JSONDecoder().decode(ExpositionData.self, from: asset.data)
-            print(decodeData)
-        } catch {
-            print(error.localizedDescription)
+        
+        guard let decodeData = try? JSONDecoder().decode(
+            IntroExpositionData.self,
+            from: asset.data
+        ) else {
+            return
         }
+        print(decodeData)
     }
 }

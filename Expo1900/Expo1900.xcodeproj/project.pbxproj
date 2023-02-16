@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		90CD3544299B7DAF003925BB /* IntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CD3543299B7DAF003925BB /* IntroView.swift */; };
 		90CD3546299E5E17003925BB /* DecodeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CD3545299E5E17003925BB /* DecodeManager.swift */; };
-		90CD3548299E5EA1003925BB /* ExpositionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CD3547299E5EA1003925BB /* ExpositionData.swift */; };
+		90CD3548299E5EA1003925BB /* IntroExpositionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CD3547299E5EA1003925BB /* IntroExpositionData.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
 		C79FF4B92589F401005FB0FD /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B82589F401005FB0FD /* MainViewController.swift */; };
@@ -20,7 +20,7 @@
 /* Begin PBXFileReference section */
 		90CD3543299B7DAF003925BB /* IntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroView.swift; sourceTree = "<group>"; };
 		90CD3545299E5E17003925BB /* DecodeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodeManager.swift; sourceTree = "<group>"; };
-		90CD3547299E5EA1003925BB /* ExpositionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionData.swift; sourceTree = "<group>"; };
+		90CD3547299E5EA1003925BB /* IntroExpositionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroExpositionData.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C79FF4B62589F401005FB0FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -41,6 +41,50 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		90CD3549299E7AFB003925BB /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C79FF4B82589F401005FB0FD /* MainViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		90CD354A299E7B07003925BB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				90CD3543299B7DAF003925BB /* IntroView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		90CD354B299E7B18003925BB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				90CD3545299E5E17003925BB /* DecodeManager.swift */,
+				90CD3547299E5EA1003925BB /* IntroExpositionData.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		90CD354C299E7BA4003925BB /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				C79FF4BD2589F404005FB0FD /* Assets.xcassets */,
+				C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */,
+				C79FF4C22589F404005FB0FD /* Info.plist */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		90CD354D299E7BCE003925BB /* LifeCycle */ = {
+			isa = PBXGroup;
+			children = (
+				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
+				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
+			);
+			path = LifeCycle;
+			sourceTree = "<group>";
+		};
 		C79FF4A82589F401005FB0FD = {
 			isa = PBXGroup;
 			children = (
@@ -60,15 +104,11 @@
 		C79FF4B32589F401005FB0FD /* Expo1900 */ = {
 			isa = PBXGroup;
 			children = (
-				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
-				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
-				C79FF4B82589F401005FB0FD /* MainViewController.swift */,
-				90CD3545299E5E17003925BB /* DecodeManager.swift */,
-				90CD3547299E5EA1003925BB /* ExpositionData.swift */,
-				90CD3543299B7DAF003925BB /* IntroView.swift */,
-				C79FF4BD2589F404005FB0FD /* Assets.xcassets */,
-				C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */,
-				C79FF4C22589F404005FB0FD /* Info.plist */,
+				90CD354C299E7BA4003925BB /* Resource */,
+				90CD3549299E7AFB003925BB /* Controller */,
+				90CD354B299E7B18003925BB /* Model */,
+				90CD354A299E7B07003925BB /* View */,
+				90CD354D299E7BCE003925BB /* LifeCycle */,
 			);
 			path = Expo1900;
 			sourceTree = "<group>";
@@ -147,7 +187,7 @@
 				90CD3544299B7DAF003925BB /* IntroView.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
-				90CD3548299E5EA1003925BB /* ExpositionData.swift in Sources */,
+				90CD3548299E5EA1003925BB /* IntroExpositionData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,7 +327,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Expo1900/Info.plist;
+				INFOPLIST_FILE = Expo1900/Resource/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -305,7 +345,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Expo1900/Info.plist;
+				INFOPLIST_FILE = Expo1900/Resource/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

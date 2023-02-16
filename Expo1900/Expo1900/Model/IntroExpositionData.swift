@@ -5,7 +5,7 @@
 //  Created by 임지연 on 2023/02/16.
 //
 
-struct ExpositionData: Decodable {
+struct IntroExpositionData: Decodable {
     let title: String
     let visitors: Int
     let location: String
