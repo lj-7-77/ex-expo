@@ -7,7 +7,8 @@
 import UIKit
 
 class MainViewController: UIViewController {
-
+    let decodeManager = DecodeManager()
+    
     override func loadView() {
         super.loadView()
         self.view = IntroView()
@@ -15,8 +16,7 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        decodeManager.parse()
     }
-
-
 }
 
