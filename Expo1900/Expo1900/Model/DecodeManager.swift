@@ -8,17 +8,17 @@
 import UIKit
 
 final class DecodeManager: Error {
-    func parse() {
+    func parse() -> IntroExpositionData? {
         guard let asset = NSDataAsset(name: "exposition_universelle_1900") else {
-            return
+            return nil
         }
         
         guard let decodeData = try? JSONDecoder().decode(
             IntroExpositionData.self,
             from: asset.data
         ) else {
-            return
+            return nil
         }
-        print(decodeData)
+        return decodeData
     }
 }
