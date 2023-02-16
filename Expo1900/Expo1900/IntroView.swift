@@ -26,14 +26,12 @@ final class IntroView: UIView {
 """
         label.numberOfLines = 0
         label.font = UIFont.preferredFont(forTextStyle: .title1)
-        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     private let posterImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "poster.png")
-        imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
@@ -41,7 +39,6 @@ final class IntroView: UIView {
         let label = UILabel()
         label.text = "방문객 : 48,130,300 명"
         label.font = UIFont.preferredFont(forTextStyle: .body)
-        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
@@ -49,7 +46,6 @@ final class IntroView: UIView {
         let label = UILabel()
         label.text = "개최지 : 프랑스 파리"
         label.font = UIFont.preferredFont(forTextStyle: .body)
-        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
@@ -57,7 +53,6 @@ final class IntroView: UIView {
         let label = UILabel()
         label.text = "개최기간 : 1900. 04. 14 ~ 1900. 11. 12"
         label.font = UIFont.preferredFont(forTextStyle: .body)
-        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
@@ -69,11 +64,42 @@ final class IntroView: UIView {
                         생명을 원질이 행복스럽고 무엇을 속에서 것이다. 천자만홍이 피고 목숨을 긴지라 그들의 열락의 물방아 사막이다. 무엇을 크고 더운지라 대중을 얼음에 피가 위하여 때문이다. 새 산야에 같이 하는 역사를 가지에 하였으며, 노년에게서 뿐이다. 청춘에서만 붙잡아 거친 낙원을 할지니, 되는 인생을 보내는 그들의 약동하다. 무엇이 별과 곳으로 있다. 생생하며, 우리 가는 이것이다. 불러 천지는 몸이 힘있다. 유소년에게서 얼마나 뭇 교향악이다. 실로 사람은 밥을 것이다. 발휘하기 피는 현저하게 무엇이 곧 대고, 청춘의 것은 희망의 칼이다.
                         생명을 원질이 행복스럽고 무엇을 속에서 것이다. 천자만홍이 피고 목숨을 긴지라 그들의 열락의 물방아 사막이다. 무엇을 크고 더운지라 대중을 얼음에 피가 위하여 때문이다. 새 산야에 같이 하는 역사를 가지에 하였으며, 노년에게서 뿐이다. 청춘에서만 붙잡아 거친 낙원을 할지니, 되는 인생을 보내는 그들의 약동하다. 무엇이 별과 곳으로 있다. 생생하며, 우리 가는 이것이다. 불러 천지는 몸이 힘있다. 유소년에게서 얼마나 뭇 교향악이다. 실로 사람은 밥을 것이다. 발휘하기 피는 현저하게 무엇이 곧 대고, 청춘의 것은 희망의 칼이다.
                         """
-        textView.font = UIFont.preferredFont(forTextStyle: .body)
         textView.isEditable = false
         textView.isScrollEnabled = false
+        textView.font = UIFont.preferredFont(forTextStyle: .body)
         textView.translatesAutoresizingMaskIntoConstraints = false
         return textView
+    }()
+    
+    private let countryFlagImageView1: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "flag.png")
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
+    
+    private let countryFlagImageView2: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "flag.png")
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
+    
+    private let goToNextPageButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("한국의 출품작 보러가기", for: .normal)
+        button.setTitleColor(.systemBlue, for: .normal)
+        return button
+    }()
+    
+    private var bottomStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.spacing = 5
+        stackView.alignment = .center
+        stackView.distribution = .fill
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        return stackView
     }()
     
     private var stackView: UIStackView = {
@@ -97,10 +123,12 @@ final class IntroView: UIView {
 
 extension IntroView {
     private func setupUI() {
+        [countryFlagImageView1, goToNextPageButton, countryFlagImageView2].forEach {
+            bottomStackView.addArrangedSubview($0)
+        }
         [titleLabel, posterImageView, visitorsLabel, locationLabel, periodLabel,
-         descriptionTextView].forEach {
+         descriptionTextView, bottomStackView].forEach {
             stackView.addArrangedSubview($0)
-            
         }
         self.addSubview(scrollView)
         scrollView.addSubview(stackView)
@@ -117,14 +145,19 @@ extension IntroView {
 
 
             stackView.topAnchor.constraint(equalTo: scrollView.topAnchor),
-            stackView.leadingAnchor.constraint(
-                equalTo: scrollView.leadingAnchor),
-            stackView.trailingAnchor.constraint(
-                equalTo: scrollView.trailingAnchor),
+            stackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            stackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
             stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
             
             stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
-            stackView.heightAnchor.constraint(equalTo: scrollView.heightAnchor)
+            stackView.heightAnchor.constraint(equalTo: scrollView.heightAnchor),
+            
+            descriptionTextView.heightAnchor.constraint(equalTo: descriptionTextView.contentLayoutGuide.heightAnchor),
+            descriptionTextView.widthAnchor.constraint(equalTo: stackView.widthAnchor),
+
+            countryFlagImageView1.widthAnchor.constraint(equalTo: stackView.widthAnchor, multiplier: 0.2),
+            countryFlagImageView2.widthAnchor.constraint(equalTo: stackView.widthAnchor, multiplier: 0.2),
+
         ])
     }
 }
