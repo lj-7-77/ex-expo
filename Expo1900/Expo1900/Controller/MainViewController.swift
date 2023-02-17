@@ -7,10 +7,8 @@
 import UIKit
 
 class MainViewController: UIViewController {
-    
     let decodeManager = DecodeManager()
     var introView = IntroView()
-//    var introExpositiondata: IntroExpositionData
     
     override func loadView() {
         super.loadView()
@@ -18,14 +16,18 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let parseData = decodeManager.parse() else {
+        decodeData()
+        self.view = introView
+        
+        introView.delegate = self
+    }
+    
+    private func decodeData() {
+        guard let data = decodeManager.parse() else {
             return
         }
-        let introExpositiondata = parseData
-        print(introExpositiondata.description)
-        
-        setupIntroView(introExpositiondata)
-        self.view = introView
+        let introData = data
+        setupIntroView(introData)
     }
     
     private func setupIntroView(_ data: IntroExpositionData) {
@@ -37,3 +39,9 @@ class MainViewController: UIViewController {
     }
 }
 
+extension MainViewController: IntroViewDelegate {
+    func tappedNextPageButton(sender: UIButton) {
+        let vc = ExhibitViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+}

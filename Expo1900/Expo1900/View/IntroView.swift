@@ -7,17 +7,13 @@
 
 import UIKit
 
+protocol IntroViewDelegate {
+    func tappedNextPageButton(sender: UIButton)
+}
+
 final class IntroView: UIView {
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        self.backgroundColor = .systemBackground
-        setupUI()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
+    var delegate: IntroViewDelegate?
+
     let titleLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
@@ -73,13 +69,6 @@ final class IntroView: UIView {
         return imageView
     }()
     
-    private let goToNextPageButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("한국의 출품작 보러가기", for: .normal)
-        button.setTitleColor(.systemBlue, for: .normal)
-        return button
-    }()
-    
     private var bottomStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
@@ -113,11 +102,38 @@ final class IntroView: UIView {
         contentView.translatesAutoresizingMaskIntoConstraints = false
         return contentView
     }()
+    
+    let nextPageButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("한국의 출품작 보러가기", for: .normal)
+        button.setTitleColor(.systemBlue, for: .normal)
+        button.addTarget(self,
+                         action: #selector(ask),
+                         for: .touchUpInside)
+        return button
+    }()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.backgroundColor = .systemBackground
+        setupUI()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    @objc func ask() {
+        print("🟡🟡🟡")
+        if let delegate = delegate {
+            delegate.tappedNextPageButton(sender: nextPageButton)
+        }
+    }
 }
 
 extension IntroView {
     private func setupUI() {
-        [countryFlagImageView1, goToNextPageButton, countryFlagImageView2].forEach {
+        [countryFlagImageView1, nextPageButton, countryFlagImageView2].forEach {
             bottomStackView.addArrangedSubview($0)
         }
         [titleLabel, posterImageView, visitorsLabel, locationLabel, durationLabel,
