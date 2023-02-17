@@ -107,7 +107,7 @@ final class IntroView: UIView {
         let button = UIButton()
         button.setTitle("한국의 출품작 보러가기", for: .normal)
         button.setTitleColor(.systemBlue, for: .normal)
-        button.addTarget(self,
+        button.addTarget(target,
                          action: #selector(ask),
                          for: .touchUpInside)
         return button
@@ -124,7 +124,6 @@ final class IntroView: UIView {
     }
     
     @objc func ask() {
-        print("🟡🟡🟡")
         if let delegate = delegate {
             delegate.tappedNextPageButton(sender: nextPageButton)
         }

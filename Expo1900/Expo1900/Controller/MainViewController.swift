@@ -41,7 +41,7 @@ class MainViewController: UIViewController {
 
 extension MainViewController: IntroViewDelegate {
     func tappedNextPageButton(sender: UIButton) {
-        let vc = ExhibitViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
+        let exhibitViewController = ExhibitViewController()
+        self.navigationController?.pushViewController(exhibitViewController, animated: true)
     }
 }
