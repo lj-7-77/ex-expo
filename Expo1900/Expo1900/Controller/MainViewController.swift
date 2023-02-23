@@ -12,13 +12,14 @@ class MainViewController: UIViewController {
     
     override func loadView() {
         super.loadView()
+        navigationItem.title = "메인"
+        self.navigationController?.isNavigationBarHidden = true
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         decodeData()
         self.view = introView
-        
         introView.delegate = self
     }
     

@@ -15,14 +15,14 @@ final class ExhibitViewController: UIViewController {
         super.loadView()
         self.view = tableView
         self.view.backgroundColor = .systemBackground
-        self.navigationController?.title = "한국의 출품작"
-        self.navigationItem.backBarButtonItem?.title = "메인"
+        navigationItem.title = "한국의 출품작"
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
         decodeData()
+        self.navigationController?.isNavigationBarHidden = false
     }
     
     private func setupTableView() {
@@ -46,20 +46,17 @@ extension ExhibitViewController: UITableViewDelegate {
 
 extension ExhibitViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 50
+        return 30
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? ItemCell else {
+            return UITableViewCell()
+        }
         
-        var cell = tableView.dequeueReusableCell(withIdentifier: "cell")
-        cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
-        
-        cell!.imageView?.image = UIImage(named: "poster.png")
-        cell!.textLabel?.text = "title333"
-        cell!.detailTextLabel?.text = "detail333"
-        cell!.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
-        
-        return cell!
+        cell.titleLabel.text = "title text"
+        cell.detailLabel.text = "detail text"
+        return cell
     }
     
     private func setupTableData(_ data: ItemsData) {
