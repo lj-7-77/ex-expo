@@ -50,27 +50,19 @@ extension ExhibitViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? ItemCell else {
-            return UITableViewCell()
-        }
         
-        cell.name.text = "Row \(indexPath.row)"
-        return cell
+        var cell = tableView.dequeueReusableCell(withIdentifier: "cell")
+        cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
+        
+        cell!.imageView?.image = UIImage(named: "poster.png")
+        cell!.textLabel?.text = "title333"
+        cell!.detailTextLabel?.text = "detail333"
+        cell!.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
+        
+        return cell!
     }
     
     private func setupTableData(_ data: ItemsData) {
-        
-    }
-}
 
-final class ItemCell: UITableViewCell {
-    let name = UILabel()
-
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 }
