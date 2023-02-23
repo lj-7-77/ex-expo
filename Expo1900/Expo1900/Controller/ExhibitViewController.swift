@@ -10,6 +10,7 @@ import UIKit
 final class ExhibitViewController: UIViewController {
     let decodeManager = DecodeManager()
     var tableView = UITableView()
+    var itemsData: [ItemsData] = []
     
     override func loadView() {
         super.loadView()
@@ -21,7 +22,7 @@ final class ExhibitViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
-        decodeData()
+        itemsData = decodeData()
         self.navigationController?.isNavigationBarHidden = false
     }
     
@@ -31,12 +32,11 @@ final class ExhibitViewController: UIViewController {
         tableView.register(ItemCell.self, forCellReuseIdentifier: "cell")
     }
 
-    private func decodeData() {
-        guard let data: ItemsData = decodeManager.parse(file: "items") else {
-            return
+    private func decodeData() -> [ItemsData] {
+        guard let data: [ItemsData] = decodeManager.parse(file: "items") else {
+            return itemsData
         }
-        let itemsData: ItemsData = data
-        setupTableData(itemsData)
+        return data
     }
 }
 
@@ -46,20 +46,21 @@ extension ExhibitViewController: UITableViewDelegate {
 
 extension ExhibitViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 30
+        return itemsData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? ItemCell else {
             return UITableViewCell()
         }
-        
-        cell.titleLabel.text = "title text"
-        cell.detailLabel.text = "detail text"
+
+        bindingData(cell, indexPath)
         return cell
     }
     
-    private func setupTableData(_ data: ItemsData) {
-
+    private func bindingData(_ cell: ItemCell, _ indexPath: IndexPath) {
+        cell.itemImageView.image = UIImage(named: "\(itemsData[indexPath.row].imageName)")
+        cell.titleLabel.text = itemsData[indexPath.row].name
+        cell.detailLabel.text = itemsData[indexPath.row].shortDescription
     }
 }

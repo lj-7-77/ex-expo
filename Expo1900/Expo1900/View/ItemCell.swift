@@ -11,19 +11,21 @@ final class ItemCell: UITableViewCell {
     
     let itemImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "poster.png")
+        imageView.contentMode = .scaleAspectFit
+        imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
 
     let titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.preferredFont(forTextStyle: .body)
+        label.font = UIFont.preferredFont(forTextStyle: .title1)
         return label
     }()
 
     let detailLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.preferredFont(forTextStyle: .caption1)
+        label.numberOfLines = 0
+        label.font = UIFont.preferredFont(forTextStyle: .body)
         return label
     }()
     
@@ -61,7 +63,6 @@ extension ItemCell {
         [itemImageView, labelStackView].forEach {
             stackView.addArrangedSubview($0)
         }
-        self.addSubview(contentView)
         self.contentView.addSubview(stackView)
         setupConstraints()
     }
@@ -73,9 +74,12 @@ extension ItemCell {
             stackView.trailingAnchor.constraint(
                 equalTo: self.contentView.trailingAnchor, constant: -10),
             stackView.topAnchor.constraint(
-                equalTo: self.contentView.topAnchor),
+                equalTo: self.contentView.topAnchor, constant: 10),
             stackView.bottomAnchor.constraint(
-                equalTo: self.contentView.bottomAnchor)
+                equalTo: self.contentView.bottomAnchor, constant: -10),
+            
+            itemImageView.widthAnchor.constraint(
+                equalTo: self.contentView.widthAnchor, multiplier: 0.2)
         ])
     }
 }
