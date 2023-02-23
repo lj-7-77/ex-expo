@@ -8,22 +8,35 @@
 import UIKit
 
 final class ExhibitViewController: UIViewController {
+    let decodeManager = DecodeManager()
     var tableView = UITableView()
     
     override func loadView() {
+        super.loadView()
         self.view = tableView
         self.view.backgroundColor = .systemBackground
+        self.navigationController?.title = "한국의 출품작"
+        self.navigationItem.backBarButtonItem?.title = "메인"
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
+        decodeData()
     }
     
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(ItemCell.self, forCellReuseIdentifier: "cell")
+    }
+
+    private func decodeData() {
+        guard let data: ItemsData = decodeManager.parse(file: "items") else {
+            return
+        }
+        let itemsData: ItemsData = data
+        setupTableData(itemsData)
     }
 }
 
@@ -43,6 +56,10 @@ extension ExhibitViewController: UITableViewDataSource {
         
         cell.name.text = "Row \(indexPath.row)"
         return cell
+    }
+    
+    private func setupTableData(_ data: ItemsData) {
+        
     }
 }
 

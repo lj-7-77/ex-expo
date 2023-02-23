@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		90CD3544299B7DAF003925BB /* IntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CD3543299B7DAF003925BB /* IntroView.swift */; };
 		90CD3546299E5E17003925BB /* DecodeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CD3545299E5E17003925BB /* DecodeManager.swift */; };
-		90CD3548299E5EA1003925BB /* IntroExpositionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CD3547299E5EA1003925BB /* IntroExpositionData.swift */; };
+		90CD3548299E5EA1003925BB /* ExpositionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CD3547299E5EA1003925BB /* ExpositionData.swift */; };
 		90CD3551299F6EA7003925BB /* ExhibitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CD3550299F6EA7003925BB /* ExhibitViewController.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
@@ -21,7 +21,7 @@
 /* Begin PBXFileReference section */
 		90CD3543299B7DAF003925BB /* IntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroView.swift; sourceTree = "<group>"; };
 		90CD3545299E5E17003925BB /* DecodeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodeManager.swift; sourceTree = "<group>"; };
-		90CD3547299E5EA1003925BB /* IntroExpositionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroExpositionData.swift; sourceTree = "<group>"; };
+		90CD3547299E5EA1003925BB /* ExpositionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionData.swift; sourceTree = "<group>"; };
 		90CD3550299F6EA7003925BB /* ExhibitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitViewController.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -64,7 +64,7 @@
 			isa = PBXGroup;
 			children = (
 				90CD3545299E5E17003925BB /* DecodeManager.swift */,
-				90CD3547299E5EA1003925BB /* IntroExpositionData.swift */,
+				90CD3547299E5EA1003925BB /* ExpositionData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -191,7 +191,7 @@
 				90CD3544299B7DAF003925BB /* IntroView.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
-				90CD3548299E5EA1003925BB /* IntroExpositionData.swift in Sources */,
+				90CD3548299E5EA1003925BB /* ExpositionData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

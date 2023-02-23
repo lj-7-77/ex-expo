@@ -23,7 +23,7 @@ class MainViewController: UIViewController {
     }
     
     private func decodeData() {
-        guard let data = decodeManager.parse() else {
+        guard let data: IntroExpositionData = decodeManager.parse(file: "exposition_universelle_1900") else {
             return
         }
         let introData = data

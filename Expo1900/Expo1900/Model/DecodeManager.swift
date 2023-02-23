@@ -8,15 +8,14 @@
 import UIKit
 
 final class DecodeManager: Error {
-    func parse() -> IntroExpositionData? {
-        guard let asset = NSDataAsset(name: "exposition_universelle_1900") else {
+    func parse<T: Decodable>(file: String) -> T? {
+        guard let asset = NSDataAsset(name: file) else {
             return nil
         }
         
-        guard let decodeData = try? JSONDecoder().decode(
-            IntroExpositionData.self,
-            from: asset.data
-        ) else {
+        guard let decodeData = try? JSONDecoder().decode(T.self,
+                                                         from: asset.data)
+        else {
             return nil
         }
         return decodeData
