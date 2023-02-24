@@ -61,6 +61,8 @@ extension ExhibitViewController: UITableViewDataSource {
     private func bindingData(_ cell: ItemCell, _ indexPath: IndexPath) {
         cell.itemImageView.image = UIImage(named: "\(itemsData[indexPath.row].imageName)")
         cell.titleLabel.text = itemsData[indexPath.row].name
-        cell.detailLabel.text = itemsData[indexPath.row].shortDescription
+        cell.shortDescriptionLabel.text = itemsData[indexPath.row].shortDescription
     }
+    
+    
 }

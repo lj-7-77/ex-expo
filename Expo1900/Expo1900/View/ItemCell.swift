@@ -19,28 +19,22 @@ final class ItemCell: UITableViewCell {
     let titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.preferredFont(forTextStyle: .title1)
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
 
-    let detailLabel: UILabel = {
+    let shortDescriptionLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
+        label.sizeToFit()
         label.font = UIFont.preferredFont(forTextStyle: .body)
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     let labelStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
-        stackView.spacing = 5
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        return stackView
-    }()
-    
-    let stackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .horizontal
-        stackView.spacing = 5
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
@@ -57,29 +51,31 @@ final class ItemCell: UITableViewCell {
 
 extension ItemCell {
     private func setupCellUI() {
-        [titleLabel, detailLabel].forEach {
+        [titleLabel, shortDescriptionLabel].forEach {
             labelStackView.addArrangedSubview($0)
         }
+        
         [itemImageView, labelStackView].forEach {
-            stackView.addArrangedSubview($0)
+            contentView.addSubview($0)
         }
-        self.contentView.addSubview(stackView)
         setupConstraints()
     }
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            stackView.leadingAnchor.constraint(
-                equalTo: self.contentView.leadingAnchor, constant: 10),
-            stackView.trailingAnchor.constraint(
-                equalTo: self.contentView.trailingAnchor, constant: -10),
-            stackView.topAnchor.constraint(
-                equalTo: self.contentView.topAnchor, constant: 10),
-            stackView.bottomAnchor.constraint(
-                equalTo: self.contentView.bottomAnchor, constant: -10),
+            itemImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
+            itemImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
+            itemImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
+            itemImageView.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.2),
+            itemImageView.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.8),
             
-            itemImageView.widthAnchor.constraint(
-                equalTo: self.contentView.widthAnchor, multiplier: 0.2)
+            titleLabel.heightAnchor.constraint(equalTo: labelStackView.heightAnchor, multiplier: 0.3),
+            
+            labelStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
+            labelStackView.leadingAnchor.constraint(equalTo: itemImageView.trailingAnchor, constant: 10),
+            labelStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
+            labelStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
+            labelStackView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
         ])
     }
 }
