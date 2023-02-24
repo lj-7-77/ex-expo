@@ -6,7 +6,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+final class MainViewController: UIViewController {
     let decodeManager = DecodeManager()
     var introView = IntroView()
     

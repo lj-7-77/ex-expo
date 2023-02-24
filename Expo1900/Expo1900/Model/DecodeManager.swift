@@ -13,9 +13,8 @@ final class DecodeManager: Error {
             return nil
         }
         
-        guard let decodeData = try? JSONDecoder().decode(T.self,
-                                                         from: asset.data)
-        else {
+        guard let decodeData =
+                try? JSONDecoder().decode(T.self, from: asset.data) else {
             return nil
         }
         return decodeData

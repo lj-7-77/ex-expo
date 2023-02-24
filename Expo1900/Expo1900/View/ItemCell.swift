@@ -59,6 +59,7 @@ extension ItemCell {
             contentView.addSubview($0)
         }
         setupConstraints()
+        self.accessoryType = .disclosureIndicator
     }
     
     private func setupConstraints() {

@@ -38,10 +38,17 @@ final class ExhibitViewController: UIViewController {
         }
         return data
     }
+    
+    private func gotoNextPage() {
+        let exhibitDetailViewController = ExhibitDetailViewController()
+        self.navigationController?.pushViewController(exhibitDetailViewController, animated: true)
+    }
 }
 
 extension ExhibitViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        gotoNextPage()
+    }
 }
 
 extension ExhibitViewController: UITableViewDataSource {
@@ -63,6 +70,4 @@ extension ExhibitViewController: UITableViewDataSource {
         cell.titleLabel.text = itemsData[indexPath.row].name
         cell.shortDescriptionLabel.text = itemsData[indexPath.row].shortDescription
     }
-    
-    
 }

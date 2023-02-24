@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		90C63D6929A7D7DB00034101 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C63D6829A7D7DB00034101 /* ItemCell.swift */; };
+		90C63D6F29A93AB300034101 /* ExhibitDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C63D6E29A93AB300034101 /* ExhibitDetailViewController.swift */; };
 		90CD3544299B7DAF003925BB /* IntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CD3543299B7DAF003925BB /* IntroView.swift */; };
 		90CD3546299E5E17003925BB /* DecodeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CD3545299E5E17003925BB /* DecodeManager.swift */; };
 		90CD3548299E5EA1003925BB /* ExpositionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CD3547299E5EA1003925BB /* ExpositionData.swift */; };
@@ -21,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		90C63D6829A7D7DB00034101 /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
+		90C63D6E29A93AB300034101 /* ExhibitDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitDetailViewController.swift; sourceTree = "<group>"; };
 		90CD3543299B7DAF003925BB /* IntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroView.swift; sourceTree = "<group>"; };
 		90CD3545299E5E17003925BB /* DecodeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodeManager.swift; sourceTree = "<group>"; };
 		90CD3547299E5EA1003925BB /* ExpositionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionData.swift; sourceTree = "<group>"; };
@@ -50,6 +52,7 @@
 			children = (
 				C79FF4B82589F401005FB0FD /* MainViewController.swift */,
 				90CD3550299F6EA7003925BB /* ExhibitViewController.swift */,
+				90C63D6E29A93AB300034101 /* ExhibitDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -196,6 +199,7 @@
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
 				90CD3548299E5EA1003925BB /* ExpositionData.swift in Sources */,
+				90C63D6F29A93AB300034101 /* ExhibitDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
