@@ -30,5 +30,7 @@ final class ExhibitDetailViewController: UIViewController {
     
     private func setupData(_ item: ItemsData) {
         navigationItem.title = item.name
+        exhibitDetailView.imageView.image = UIImage(named: item.imageName)
+        exhibitDetailView.textView.text = item.desc
     }
 }
