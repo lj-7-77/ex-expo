@@ -38,16 +38,16 @@ final class ExhibitViewController: UIViewController {
         }
         return data
     }
-    
-    private func gotoNextPage() {
-        let exhibitDetailViewController = ExhibitDetailViewController()
-        self.navigationController?.pushViewController(exhibitDetailViewController, animated: true)
-    }
 }
 
 extension ExhibitViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        gotoNextPage()
+        gotoNextPage(data: itemsData[indexPath.row])
+    }
+    
+    private func gotoNextPage(data: ItemsData) {
+        let exhibitDetailViewController = ExhibitDetailViewController(item: data)
+        self.navigationController?.pushViewController(exhibitDetailViewController, animated: true)
     }
 }
 
