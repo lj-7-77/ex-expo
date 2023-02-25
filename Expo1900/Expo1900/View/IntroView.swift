@@ -46,23 +46,23 @@ final class IntroView: UIView {
         return label
     }()
     
-    let descriptionTextView: UITextView = {
-        let textView = UITextView()
-        textView.isEditable = false
-        textView.isScrollEnabled = false
-        textView.font = UIFont.preferredFont(forTextStyle: .body)
-        textView.translatesAutoresizingMaskIntoConstraints = false
-        return textView
+    let descriptionLabel: UILabel = {
+        let label = UILabel()
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
+        label.font = UIFont.preferredFont(forTextStyle: .body)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
     }()
     
-    private let countryFlagImageView1: UIImageView = {
+    private let countryFlagImageViewRight: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "flag.png")
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
-    private let countryFlagImageView2: UIImageView = {
+    private let countryFlagImageViewLeft: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "flag.png")
         imageView.contentMode = .scaleAspectFit
@@ -132,11 +132,11 @@ final class IntroView: UIView {
 
 extension IntroView {
     private func setupUI() {
-        [countryFlagImageView1, nextPageButton, countryFlagImageView2].forEach {
+        [countryFlagImageViewRight, nextPageButton, countryFlagImageViewLeft].forEach {
             bottomStackView.addArrangedSubview($0)
         }
         [titleLabel, posterImageView, visitorsLabel, locationLabel, durationLabel,
-         descriptionTextView, bottomStackView].forEach {
+         descriptionLabel, bottomStackView].forEach {
             stackView.addArrangedSubview($0)
         }
         self.addSubview(scrollView)
@@ -165,12 +165,12 @@ extension IntroView {
               
               stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
               
-              descriptionTextView.widthAnchor.constraint(equalTo: stackView.widthAnchor),
+              descriptionLabel.widthAnchor.constraint(equalTo: stackView.widthAnchor),
 
-              countryFlagImageView1.widthAnchor.constraint(equalTo: stackView.widthAnchor, multiplier: 0.15),
-              countryFlagImageView2.widthAnchor.constraint(equalTo: stackView.widthAnchor, multiplier: 0.15),
-              countryFlagImageView1.heightAnchor.constraint(equalTo: countryFlagImageView1.widthAnchor),
-              countryFlagImageView2.heightAnchor.constraint(equalTo: countryFlagImageView2.widthAnchor)
+              countryFlagImageViewRight.widthAnchor.constraint(equalTo: stackView.widthAnchor, multiplier: 0.15),
+              countryFlagImageViewLeft.widthAnchor.constraint(equalTo: stackView.widthAnchor, multiplier: 0.15),
+              countryFlagImageViewRight.heightAnchor.constraint(equalTo: countryFlagImageViewRight.widthAnchor),
+              countryFlagImageViewLeft.heightAnchor.constraint(equalTo: countryFlagImageViewLeft.widthAnchor)
           ])
       }
 }

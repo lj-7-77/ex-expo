@@ -15,12 +15,13 @@ final class ExhibitDetailView: UIView {
         return imageView
     }()
     
-    let textView: UITextView = {
-        let textView = UITextView()
-        textView.isScrollEnabled = false
-        textView.font = UIFont.preferredFont(forTextStyle: .body)
-        textView.translatesAutoresizingMaskIntoConstraints = false
-        return textView
+    let descLabel: UILabel = {
+        let label = UILabel()
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
+        label.font = UIFont.preferredFont(forTextStyle: .body)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
     }()
     
     let scrollView: UIScrollView = {
@@ -51,7 +52,7 @@ extension ExhibitDetailView {
         self.addSubview(scrollView)
         scrollView.addSubview(contentView)
         contentView.addSubview(imageView)
-        contentView.addSubview(textView)
+        contentView.addSubview(descLabel)
         setupConstraints()
     }
     
@@ -74,11 +75,11 @@ extension ExhibitDetailView {
             imageView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
             imageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             
-            textView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 10),
-            textView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            textView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            textView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            textView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+            descLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 10),
+            descLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            descLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            descLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            descLabel.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
             
         ])
     }

@@ -36,7 +36,7 @@ final class MainViewController: UIViewController {
         introView.visitorsLabel.text = "방문객 : \(data.visitors) 명"
         introView.locationLabel.text = "개최지 : \(data.location)"
         introView.durationLabel.text = "개최 기간 : \(data.duration)"
-        introView.descriptionTextView.text = data.description
+        introView.descriptionLabel.text = data.description
     }
 }
 
