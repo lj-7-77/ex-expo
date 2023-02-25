@@ -18,6 +18,7 @@ final class IntroView: UIView {
         let label = UILabel()
         label.numberOfLines = 0
         label.textAlignment = .center
+        label.adjustsFontForContentSizeCategory = true
         label.font = UIFont.preferredFont(forTextStyle: .title1)
         return label
     }()
@@ -30,18 +31,21 @@ final class IntroView: UIView {
     
     let visitorsLabel: UILabel = {
         let label = UILabel()
+        label.adjustsFontForContentSizeCategory = true
         label.font = UIFont.preferredFont(forTextStyle: .body)
         return label
     }()
     
     let locationLabel: UILabel = {
         let label = UILabel()
+        label.adjustsFontForContentSizeCategory = true
         label.font = UIFont.preferredFont(forTextStyle: .body)
         return label
     }()
     
     let durationLabel: UILabel = {
         let label = UILabel()
+        label.adjustsFontForContentSizeCategory = true
         label.font = UIFont.preferredFont(forTextStyle: .body)
         return label
     }()
@@ -50,6 +54,7 @@ final class IntroView: UIView {
         let label = UILabel()
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
+        label.adjustsFontForContentSizeCategory = true
         label.font = UIFont.preferredFont(forTextStyle: .body)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label

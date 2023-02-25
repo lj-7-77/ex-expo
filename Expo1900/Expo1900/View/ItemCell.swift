@@ -18,6 +18,7 @@ final class ItemCell: UITableViewCell {
 
     let titleLabel: UILabel = {
         let label = UILabel()
+        label.adjustsFontForContentSizeCategory = true
         label.font = UIFont.preferredFont(forTextStyle: .title1)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -25,8 +26,9 @@ final class ItemCell: UITableViewCell {
 
     let shortDescriptionLabel: UILabel = {
         let label = UILabel()
-        label.numberOfLines = 0
         label.sizeToFit()
+        label.numberOfLines = 0
+        label.adjustsFontForContentSizeCategory = true
         label.font = UIFont.preferredFont(forTextStyle: .body)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
